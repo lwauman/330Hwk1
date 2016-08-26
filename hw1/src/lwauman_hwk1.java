@@ -64,16 +64,72 @@ public class lwauman_hwk1{
                     return true;
                 }
             }    
-            else if(itemClass.equals(Double.class))
-                return Math.sqrt((Float)item) % 1 == 0;
-            else if(itemClass.equals(Float.class))
-                return Math.sqrt((Float)item) % 1 == 0;
-            else if(itemClass.equals(Byte.class))
-                return Math.sqrt((Byte)item) % 1 == 0;
-            else if(itemClass.equals(Short.class))
-                return Math.sqrt((Short)item) % 1 == 0;
-            else if(itemClass.equals(Long.class))
-                return Math.sqrt((Long)item) % 1 == 0;
+            else if(itemClass.equals(Double.class)){
+                double num = (Double)item;
+                double fraction = num % 1;
+                if(num<2)
+                    return false;
+                else if(fraction!=0)
+                    return false;
+                else{
+                    for(int i=2; i<=num/2; i++){
+                    if(num % i == 0)
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            else if(itemClass.equals(Float.class)){
+                float num = (Float)item;
+                float fraction = num % 1;
+                if(num<2)
+                    return false;
+                else if(fraction!=0)
+                    return false;
+                else{
+                    for(int i=2; i<=num/2; i++){
+                    if(num % i == 0)
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            else if(itemClass.equals(Byte.class)){
+                byte num = (Byte)item;
+                if(num<2)
+                    return false;
+                else{
+                    for(int i=2; i<=num/2; i++){
+                    if(num % i == 0)
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            else if(itemClass.equals(Short.class)){
+                short num = (Short)item;
+                if(num<2)
+                    return false;
+                else{
+                    for(int i=2; i<=num/2; i++){
+                    if(num % i == 0)
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            else if(itemClass.equals(Long.class)){
+                Long num = (Long)item;
+                if(num<2)
+                    return false;
+                else{
+                    for(int i=2; i<=num/2; i++){
+                    if(num % i == 0)
+                        return false;
+                    }
+                    return true;
+                }
+            }
             else
                 return false;
         }  
@@ -86,17 +142,17 @@ public class lwauman_hwk1{
     }
     public static void main(String[] args) {
         Integer[] iarr = {null, -1, 49, 3};
-        Integer[] iarr2 = {0, 6, 8};
+        Integer[] iarr2 = {6, 8, 10};
         Double[] iarr3 = {null, -1.0, 49.0, 3.0};
-        Double[] iarr4 = {0.0, 6.1, 8.2};
+        Double[] iarr4 = {6.1, 8.2, 10.3};
         Long[] iarr5 = {null, -1L, 49L, 3L};
-        Long[] iarr6 = {0L, 6L, 8L};
+        Long[] iarr6 = {6L, 8L, 10L};
         Byte[] iarr7 = {null, -1, 49, 3};
-        Byte[] iarr8 = {0, 6, 8};
+        Byte[] iarr8 = {6, 8, 10};
         Short[] iarr9 = {null, -1, 49, 3};
-        Short[] iarr10 = {0, 6, 8};
+        Short[] iarr10 = {6, 8, 10};
         Float[] iarr11 = {null, -1.0f, 49.0f, 3.0f};
-        Float[] iarr12 = {0.0f, 6.1f, 8.2f};
+        Float[] iarr12 = {6.1f, 8.2f, 10.3f};
         String[] iarr13 = {"apple"};
         System.out.println("        Contains Negative Tests");
         System.out.println("Integer Array (true expected).  Result: "+contains(iarr, new Negative()));
@@ -131,18 +187,17 @@ public class lwauman_hwk1{
         System.out.println("        Contains Prime Tests");
         System.out.println("Integer Array (true expected).  Result: "+contains(iarr, new Prime()));
         System.out.println("Integer Array (false expected). Result: "+contains(iarr2, new Prime()));
-        System.out.println("Double Array (true expected).   Result: "+contains(iarr3, new PerfectSquare()));
-        System.out.println("Double Array (false expected).  Result: "+contains(iarr4, new PerfectSquare()));
-        System.out.println("Long Array (true expected).     Result: "+contains(iarr5, new PerfectSquare()));
-        System.out.println("Long Array (false expected).    Result: "+contains(iarr6, new PerfectSquare()));
-        System.out.println("Byte Array (true expected).     Result: "+contains(iarr7, new PerfectSquare()));
-        System.out.println("Byte Array (false expected).    Result: "+contains(iarr8, new PerfectSquare()));
-        System.out.println("Short Array (true expected).    Result: "+contains(iarr9, new PerfectSquare()));
-        System.out.println("Short Array (false expected).   Result: "+contains(iarr10, new PerfectSquare()));
-        System.out.println("Float Array (true expected).    Result: "+contains(iarr11, new PerfectSquare()));
-        System.out.println("Float Array (false expected).   Result: "+contains(iarr12, new PerfectSquare()));
-        System.out.println("String Array (false expected).  Result: "+contains(iarr13, new PerfectSquare()));
-        System.out.println("");
+        System.out.println("Double Array (true expected).   Result: "+contains(iarr3, new Prime()));
+        System.out.println("Double Array (false expected).  Result: "+contains(iarr4, new Prime()));
+        System.out.println("Long Array (true expected).     Result: "+contains(iarr5, new Prime()));
+        System.out.println("Long Array (false expected).    Result: "+contains(iarr6, new Prime()));
+        System.out.println("Byte Array (true expected).     Result: "+contains(iarr7, new Prime()));
+        System.out.println("Byte Array (false expected).    Result: "+contains(iarr8, new Prime()));
+        System.out.println("Short Array (true expected).    Result: "+contains(iarr9, new Prime()));
+        System.out.println("Short Array (false expected).   Result: "+contains(iarr10, new Prime()));
+        System.out.println("Float Array (true expected).    Result: "+contains(iarr11, new Prime()));
+        System.out.println("Float Array (false expected).   Result: "+contains(iarr12, new Prime()));
+        System.out.println("String Array (false expected).  Result: "+contains(iarr13, new Prime()));
     }
 }
 
