@@ -72,10 +72,9 @@ public class lwauman_hwk1{
                 if(num<2)
                     return false;
                 else{
-                    for(int i=2; i<=num/2; i++){
+                    for(int i=2; i<=num/2; i++)
                         if(num % i == 0)
                             return false;
-                    }
                     return true;
                 }
             }    
@@ -88,10 +87,9 @@ public class lwauman_hwk1{
                 else if(fraction!=0)
                     return false;
                 else{
-                    for(int i=2; i<=num/2; i++){
+                    for(int i=2; i<=num/2; i++)
                         if(num % i == 0)
                             return false;
-                    }
                     return true;
                 }
             }
@@ -104,10 +102,9 @@ public class lwauman_hwk1{
                 else if(fraction!=0)
                     return false;
                 else{
-                    for(int i=2; i<=num/2; i++){
+                    for(int i=2; i<=num/2; i++)
                         if(num % i == 0)
                             return false;
-                    }
                     return true;
                 }
             }
@@ -116,10 +113,9 @@ public class lwauman_hwk1{
                 if(num<2)
                     return false;
                 else{
-                    for(int i=2; i<=num/2; i++){
+                    for(int i=2; i<=num/2; i++)
                         if(num % i == 0)
                             return false;
-                    }
                     return true;
                 }
             }
@@ -128,10 +124,9 @@ public class lwauman_hwk1{
                 if(num<2)
                     return false;
                 else{
-                    for(int i=2; i<=num/2; i++){
+                    for(int i=2; i<=num/2; i++)
                         if(num % i == 0)
                             return false;
-                    }
                     return true;
                 }
             }
@@ -140,10 +135,9 @@ public class lwauman_hwk1{
                 if(num<2)
                     return false;
                 else{
-                    for(int i=2; i<=num/2; i++){
+                    for(int i=2; i<=num/2; i++)
                         if(num % i == 0)
                             return false;
-                    }
                     return true;
                 }
             }
@@ -163,9 +157,8 @@ public class lwauman_hwk1{
     //accept primitive arrays
     public static boolean contains(int[] input, Check<Integer> function){
         Integer[] newArray = new Integer[input.length];
-        for(int i=0; i<newArray.length; i++){
+        for(int i=0; i<newArray.length; i++)
             newArray[i] = input[i];
-        }
         return contains(newArray, function);
     }
     //main method. contains various arrays and uses tests
