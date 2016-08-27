@@ -159,6 +159,15 @@ public class lwauman_hwk1{
                 return true;
         return false;
     }
+    //this is an example of how you can overload contains so that it can
+    //accept primitive arrays
+    public static boolean contains(int[] input, Check<Integer> function){
+        Integer[] newArray = new Integer[input.length];
+        for(int i=0; i<newArray.length; i++){
+            newArray[i] = input[i];
+        }
+        return contains(newArray, function);
+    }
     //main method. contains various arrays and uses tests
     public static void main(String[] args) {
         Integer[] iarr = {null, -1, 49, 3};
@@ -174,6 +183,8 @@ public class lwauman_hwk1{
         Float[] iarr11 = {null, -1.0f, 49.0f, 3.0f};
         Float[] iarr12 = {6.1f, 8.2f, 10.3f};
         String[] iarr13 = {"apple"};
+        int[] iarr14 = {-1, 49, 3};
+        int[] iarr15 = {6, 8, 10};
         System.out.println("        Contains Negative Tests");
         System.out.println("Integer Array (true expected).  Result: "+contains(iarr, new Negative()));
         System.out.println("Integer Array (false expected). Result: "+contains(iarr2, new Negative()));
@@ -188,6 +199,8 @@ public class lwauman_hwk1{
         System.out.println("Float Array (true expected).    Result: "+contains(iarr11, new Negative()));
         System.out.println("Float Array (false expected).   Result: "+contains(iarr12, new Negative()));
         System.out.println("String Array (false expected).  Result: "+contains(iarr13, new Negative()));
+        System.out.println("int Array(true expected).       Result: "+contains(iarr14, new Negative()));
+        System.out.println("int Array(false expected).      Result: "+contains(iarr15, new Negative()));
         System.out.println("");
         System.out.println("        Contains Perfect Square Tests");
         System.out.println("Integer Array (true expected).  Result: "+contains(iarr, new PerfectSquare()));
@@ -203,6 +216,8 @@ public class lwauman_hwk1{
         System.out.println("Float Array (true expected).    Result: "+contains(iarr11, new PerfectSquare()));
         System.out.println("Float Array (false expected).   Result: "+contains(iarr12, new PerfectSquare()));
         System.out.println("String Array (false expected).  Result: "+contains(iarr13, new PerfectSquare()));
+        System.out.println("int Array(true expected).       Result: "+contains(iarr14, new PerfectSquare()));
+        System.out.println("int Array(false expected).      Result: "+contains(iarr15, new PerfectSquare()));
         System.out.println("");
         System.out.println("        Contains Prime Tests");
         System.out.println("Integer Array (true expected).  Result: "+contains(iarr, new Prime()));
@@ -218,6 +233,8 @@ public class lwauman_hwk1{
         System.out.println("Float Array (true expected).    Result: "+contains(iarr11, new Prime()));
         System.out.println("Float Array (false expected).   Result: "+contains(iarr12, new Prime()));
         System.out.println("String Array (false expected).  Result: "+contains(iarr13, new Prime()));
+        System.out.println("int Array(true expected).       Result: "+contains(iarr14, new Prime()));
+        System.out.println("int Array(false expected).      Result: "+contains(iarr15, new Prime()));
     }
 }
 
