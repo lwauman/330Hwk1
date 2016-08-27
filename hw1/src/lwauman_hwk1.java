@@ -1,13 +1,22 @@
+/*
+ * Author: Lucas Auman
+ * HWK 1: Generic Review
+ * CSC330-03 Fall 2016
+ */
 public class lwauman_hwk1{
+    //every test will implement this interface
     public interface Check<T>{
         public boolean test(T item);
     }
+    //checks if the item it received is less than zero. returns true/false
     public static class Negative<T> implements Check<T>{
         @Override
         public boolean test(T item) {
             if(item == null)
                 return false;
+            //checking class of item received
             Class itemClass = item.getClass();
+            //checking for acceptable class type
             if(itemClass.equals(Integer.class))
                 return (Integer)item<0;
             else if(itemClass.equals(Double.class))
@@ -24,12 +33,15 @@ public class lwauman_hwk1{
                 return false;
         }
     }
+    //checks if the item it recieved is a perfect square. returns true/false
     public static class PerfectSquare<T> implements Check<T>{
         @Override
         public boolean test(T item) {
             if(item == null)
                 return false;
+            //checking class of item received
             Class itemClass = item.getClass();
+            //checking for acceptable class type
             if(itemClass.equals(Integer.class))
                 return Math.sqrt((Integer)item) % 1 == 0;
             else if(itemClass.equals(Double.class))
@@ -46,20 +58,23 @@ public class lwauman_hwk1{
                 return false;
         }
     }
+    //checks if the item it recieved is a prime number. returns true/false
     public static class Prime<T> implements Check<T>{
         @Override
         public boolean test(T item) {
             if(item == null)
                 return false;
+            //checking class of item recieved
             Class itemClass = item.getClass();
+            //checking for acceptable class type
             if(itemClass.equals(Integer.class)){
                 int num = (Integer)item;
                 if(num<2)
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++){
-                    if(num % i == 0)
-                        return false;
+                        if(num % i == 0)
+                            return false;
                     }
                     return true;
                 }
@@ -69,12 +84,13 @@ public class lwauman_hwk1{
                 double fraction = num % 1;
                 if(num<2)
                     return false;
+                //this is a shortcut for numbers containing decimals
                 else if(fraction!=0)
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++){
-                    if(num % i == 0)
-                        return false;
+                        if(num % i == 0)
+                            return false;
                     }
                     return true;
                 }
@@ -84,12 +100,13 @@ public class lwauman_hwk1{
                 float fraction = num % 1;
                 if(num<2)
                     return false;
+                //this is a shortcut for numbers containing decimals
                 else if(fraction!=0)
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++){
-                    if(num % i == 0)
-                        return false;
+                        if(num % i == 0)
+                            return false;
                     }
                     return true;
                 }
@@ -100,8 +117,8 @@ public class lwauman_hwk1{
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++){
-                    if(num % i == 0)
-                        return false;
+                        if(num % i == 0)
+                            return false;
                     }
                     return true;
                 }
@@ -112,8 +129,8 @@ public class lwauman_hwk1{
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++){
-                    if(num % i == 0)
-                        return false;
+                        if(num % i == 0)
+                            return false;
                     }
                     return true;
                 }
@@ -124,8 +141,8 @@ public class lwauman_hwk1{
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++){
-                    if(num % i == 0)
-                        return false;
+                        if(num % i == 0)
+                            return false;
                     }
                     return true;
                 }
@@ -134,12 +151,15 @@ public class lwauman_hwk1{
                 return false;
         }  
     }
+    //this method takes a generic array and a test that implements the check interface
+    //returns true/false depending on the array and test used
     public static <T> boolean contains(T[] input, Check<T> function){
         for(T item : input)
             if(function.test(item))
                 return true;
         return false;
     }
+    //main method. contains various arrays and uses tests
     public static void main(String[] args) {
         Integer[] iarr = {null, -1, 49, 3};
         Integer[] iarr2 = {6, 8, 10};
