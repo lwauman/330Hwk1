@@ -1,1 +1,1 @@
-This program is a review of how to use generic programming.
+This program is a review of how to use generic programming and functors.
