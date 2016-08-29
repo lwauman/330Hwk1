@@ -3,6 +3,8 @@
  * HWK 1: Generic Review
  * CSC330-03 Fall 2016
  */
+//this class uses generic methods and functors in order to determine various
+//qualities of the arrays it recieves
 public class lwauman_hwk1{
     //every test will implement this interface
     public interface Check<T>{
@@ -197,7 +199,7 @@ public class lwauman_hwk1{
         System.out.println("String Array    Result: "+contains(arr13, new Negative()));
         System.out.println("int Array       Result: "+contains(arr15, new Negative()));
         System.out.println("");
-        System.out.println("    Contains Perfect Square Tests");
+        System.out.println("Contains Perfect Square Tests");
         System.out.println("        True Expected");
         System.out.println("Integer Array   Result: "+contains(arr, new PerfectSquare()));
         System.out.println("Double Array    Result: "+contains(arr3, new PerfectSquare()));
