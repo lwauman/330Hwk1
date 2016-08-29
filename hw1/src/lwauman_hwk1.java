@@ -80,11 +80,11 @@ public class lwauman_hwk1{
             }    
             else if(itemClass.equals(Double.class)){
                 double num = (Double)item;
-                double fraction = num % 1;
                 if(num<2)
                     return false;
-                //this is a shortcut for numbers containing decimals
-                else if(fraction!=0)
+                //this is a shortcut for numbers containing decimals. 
+                //Ex: 3.1 isn't prime but 3.0 is
+                else if(num % 1 != 0)
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++)
@@ -95,11 +95,11 @@ public class lwauman_hwk1{
             }
             else if(itemClass.equals(Float.class)){
                 float num = (Float)item;
-                float fraction = num % 1;
                 if(num<2)
                     return false;
-                //this is a shortcut for numbers containing decimals
-                else if(fraction!=0)
+                //this is a shortcut for numbers containing decimals. 
+                //Ex: 3.1 isn't prime but 3.0
+                else if(num % 1 != 0)
                     return false;
                 else{
                     for(int i=2; i<=num/2; i++)
@@ -234,6 +234,8 @@ public class lwauman_hwk1{
         System.out.println("Float Array     Result: "+contains(arr12, new Prime()));
         System.out.println("String Array    Result: "+contains(arr13, new Prime()));
         System.out.println("int Array       Result: "+contains(arr15, new Prime()));
+        System.out.println("------------------------------");
+        System.out.println("      Testing Complete.");
     }
 }
 
