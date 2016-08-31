@@ -16,23 +16,12 @@ public class lwauman_hwk1{
         public boolean test(T item) {
             if(item == null)
                 return false;
-            //checking class of item received
-            Class itemClass = item.getClass();
-            //checking for acceptable class type
-            if(itemClass.equals(Integer.class))
-                return (Integer)item<0;
-            else if(itemClass.equals(Double.class))
-                return (Double)item<0;
-            else if(itemClass.equals(Float.class))
-                return (Float)item<0;
-            else if(itemClass.equals(Byte.class))
-                return (Byte)item<0;
-            else if(itemClass.equals(Short.class))
-                return (Short)item<0;
-            else if(itemClass.equals(Long.class))
-                return (Long)item<0;
-            else
+            else if(item instanceof Number){
+                return ((Number)item).intValue()<0;
+            }
+            else{
                 return false;
+            }
         }
     }
     //checks if the item it recieved is a perfect square. returns true/false
@@ -41,23 +30,12 @@ public class lwauman_hwk1{
         public boolean test(T item) {
             if(item == null)
                 return false;
-            //checking class of item received
-            Class itemClass = item.getClass();
-            //checking for acceptable class type
-            if(itemClass.equals(Integer.class))
-                return Math.sqrt((Integer)item) % 1 == 0;
-            else if(itemClass.equals(Double.class))
-                return Math.sqrt((Double)item) % 1 == 0;
-            else if(itemClass.equals(Float.class))
-                return Math.sqrt((Float)item) % 1 == 0;
-            else if(itemClass.equals(Byte.class))
-                return Math.sqrt((Byte)item) % 1 == 0;
-            else if(itemClass.equals(Short.class))
-                return Math.sqrt((Short)item) % 1 == 0;
-            else if(itemClass.equals(Long.class))
-                return Math.sqrt((Long)item) % 1 == 0;
-            else
+            else if(item instanceof Number){
+                return Math.sqrt(((Number)item).doubleValue()) %1 == 0;
+            }
+            else{
                 return false;
+            }
         }
     }
     //checks if the item it recieved is a prime number. returns true/false
@@ -66,79 +44,18 @@ public class lwauman_hwk1{
         public boolean test(T item) {
             if(item == null)
                 return false;
-            //checking class of item recieved
-            Class itemClass = item.getClass();
-            //checking for acceptable class type
-            if(itemClass.equals(Integer.class)){
-                int num = (Integer)item;
-                if(num<2)
+            //if item is a subclass of Number
+            else if(item instanceof Number){
+                if(((Number)item).intValue()<2)
                     return false;
-                else{
-                    for(int i=2; i<=num/2; i++)
-                        if(num % i == 0)
-                            return false;
-                    return true;
+                //this is a shortcut for non-whole numbers
+                //Example: 3.1 is not prime (1!=0) but 3.0 is (0==0)
+                else if(((Number)item).doubleValue() % 1 != 0){
+                    return false;
                 }
-            }    
-            else if(itemClass.equals(Double.class)){
-                double num = (Double)item;
-                if(num<2)
-                    return false;
-                //this is a shortcut for numbers containing decimals. 
-                //Ex: 3.1 isn't prime but 3.0 is
-                else if(num % 1 != 0)
-                    return false;
                 else{
-                    for(int i=2; i<=num/2; i++)
-                        if(num % i == 0)
-                            return false;
-                    return true;
-                }
-            }
-            else if(itemClass.equals(Float.class)){
-                float num = (Float)item;
-                if(num<2)
-                    return false;
-                //this is a shortcut for numbers containing decimals. 
-                //Ex: 3.1 isn't prime but 3.0
-                else if(num % 1 != 0)
-                    return false;
-                else{
-                    for(int i=2; i<=num/2; i++)
-                        if(num % i == 0)
-                            return false;
-                    return true;
-                }
-            }
-            else if(itemClass.equals(Byte.class)){
-                byte num = (Byte)item;
-                if(num<2)
-                    return false;
-                else{
-                    for(int i=2; i<=num/2; i++)
-                        if(num % i == 0)
-                            return false;
-                    return true;
-                }
-            }
-            else if(itemClass.equals(Short.class)){
-                short num = (Short)item;
-                if(num<2)
-                    return false;
-                else{
-                    for(int i=2; i<=num/2; i++)
-                        if(num % i == 0)
-                            return false;
-                    return true;
-                }
-            }
-            else if(itemClass.equals(Long.class)){
-                Long num = (Long)item;
-                if(num<2)
-                    return false;
-                else{
-                    for(int i=2; i<=num/2; i++)
-                        if(num % i == 0)
+                    for(int i=2; i<=((Number) item).intValue()/2; i++)
+                        if(((Number)item).intValue() % i == 0)
                             return false;
                     return true;
                 }
