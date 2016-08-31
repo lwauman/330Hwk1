@@ -18,7 +18,9 @@ public class lwauman_hwk1{
                 return false;
             //if item is a subclass of Number
             else if(item instanceof Number){
-                return ((Number)item).intValue()<0;
+                //doubleValue and not intValue becuase -0.1 would be considered
+                //positive in int form
+                return ((Number)item).doubleValue()<0;
             }
             else{
                 return false;
