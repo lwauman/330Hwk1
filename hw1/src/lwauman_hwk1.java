@@ -16,6 +16,7 @@ public class lwauman_hwk1{
         public boolean test(T item) {
             if(item == null)
                 return false;
+            //if item is a subclass of Number
             else if(item instanceof Number){
                 return ((Number)item).intValue()<0;
             }
@@ -30,6 +31,7 @@ public class lwauman_hwk1{
         public boolean test(T item) {
             if(item == null)
                 return false;
+            //if item is a subclass of Number
             else if(item instanceof Number){
                 return Math.sqrt(((Number)item).doubleValue()) %1 == 0;
             }
